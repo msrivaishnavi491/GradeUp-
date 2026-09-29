@@ -1,4 +1,4 @@
-# GradeUp – Student Growth Platform 
+# GradeUp – Student Growth Tracker
 
 GradeUp is a browser-based student development dashboard built with HTML, CSS and Vanilla JavaScript.
 
