@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GradeUp | Student Growth Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-label="GradeUp achievement">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+          <circle cx="24" cy="24" r="20" class="medal-ring"></circle>
+          <path d="M17 8h5l2 8-4 4-5-4 2-8zM31 8h-5l-2 8 4 4 5-4-2-8z" class="ribbon"></path>
+          <path d="M24 14l2.7 5.4 6 .9-4.35 4.2 1.03 5.9L24 27.6l-5.38 2.8 1.03-5.9-4.35-4.2 6-.9L24 14z" class="star"></path>
+        </svg>
+      </div>
+      <div><strong>GradeUp</strong><span>Student Growth</span></div>
+    </div>
+    <nav>
+      <button class="nav-link active" data-section="dashboard">⌂ <span>Dashboard</span></button>
+      <button class="nav-link" data-section="skills">◈ <span>Skills</span></button>
+      <button class="nav-link" data-section="weekly">◷ <span>Weekly Growth</span></button>
+      <button class="nav-link" data-section="academics">▣ <span>Academics</span></button>
+      <button class="nav-link" data-section="career">◆ <span>Career Path</span></button>
+      <button class="nav-link" data-section="placement">✓ <span>Placement</span></button>
+    </nav>
+    <div class="sidebar-note">
+      <strong>Remember</strong>
+      <p>Your CGPA is one number. Your skills, habits and projects show your growth.</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">STUDENT GROWTH PLATFORM</p>
+        <h1>Build your career, not just your CGPA.</h1>
+        <p class="muted">Track academics, skills, habits and placement readiness in one place.</p>
+      </div>
+      <button class="reset-btn" id="resetData">Reset data</button>
+    </header>
+
+    <section id="dashboard" class="page-section active-section">
+      <div class="hero-card">
+        <div>
+          <span class="pill">Growth over marks</span>
+          <h2>Your progress is more than a CGPA.</h2>
+          <p>GradeUp helps you turn your learning into measurable progress across technical skills, projects, habits and career preparation.</p>
+        </div>
+        <div class="hero-ring" id="heroReadiness">0%</div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><span>Current CGPA</span><strong id="statCgpa">—</strong><small>Academic snapshot</small></article>
+        <article class="stat-card"><span>Skill Growth</span><strong id="statSkill">0%</strong><small id="statSkillSub">0 skills tracked</small></article>
+        <article class="stat-card"><span>Weekly Growth</span><strong id="statWeekly">0%</strong><small>Target completion</small></article>
+        <article class="stat-card"><span>Placement Readiness</span><strong id="statPlacement">0%</strong><small>Across key areas</small></article>
+      </div>
+
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head"><div><p class="eyebrow">NEXT ACTION</p><h3>What should you improve?</h3></div></div>
+          <div id="nextFocus" class="focus-box"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><p class="eyebrow">THIS WEEK</p><h3>Growth snapshot</h3></div></div>
+          <div id="weeklySnapshot"></div>
+        </article>
+      </div>
+
+      <article class="panel">
+        <div class="panel-head"><div><p class="eyebrow">CAREER</p><h3>Your growth areas</h3></div></div>
+        <div id="dashboardSkills" class="skill-mini-grid"></div>
+      </article>
+    </section>
+
+    <section id="skills" class="page-section">
+      <div class="section-title"><div><p class="eyebrow">SKILL DEVELOPMENT</p><h2>Build evidence, not just labels.</h2></div></div>
+      <div class="two-col">
+        <article class="panel">
+          <h3>Add a skill</h3>
+          <form id="skillForm" class="form-grid">
+            <input id="skillName" required placeholder="Skill name e.g. Java">
+            <select id="skillLevel">
+              <option value="25">Beginner</option>
+              <option value="50">Learning</option>
+              <option value="75">Comfortable</option>
+              <option value="100">Strong</option>
+            </select>
+            <input id="skillTarget" required placeholder="Target / evidence e.g. 100 DSA problems">
+            <button class="primary-btn">Add skill</button>
+          </form>
+        </article>
+        <article class="panel">
+          <h3>How to make a skill real</h3>
+          <ul class="tips">
+            <li>Learn the concept.</li><li>Practice it.</li><li>Use it in a project.</li><li>Keep evidence such as problems, certificates or GitHub work.</li>
+          </ul>
+        </article>
+      </div>
+      <div id="skillsGrid" class="cards-grid"></div>
+    </section>
+
+    <section id="weekly" class="page-section">
+      <div class="section-title"><div><p class="eyebrow">CONSISTENCY</p><h2>Track what you actually do.</h2></div></div>
+      <article class="panel">
+        <div class="weekly-intro"><div><h3>Weekly growth tracker</h3><p class="muted">Set realistic targets and record your completed work.</p></div><span class="big-percent" id="weeklyPercent">0%</span></div>
+        <div id="weeklyList"></div>
+        <form id="weeklyForm" class="form-grid weekly-form">
+          <input id="activityName" required placeholder="Activity e.g. DSA problems">
+          <input id="activityTarget" required type="number" min="1" placeholder="Target">
+          <button class="primary-btn">Add activity</button>
+        </form>
+      </article>
+    </section>
+
+    <section id="academics" class="page-section">
+      <div class="section-title"><div><p class="eyebrow">ACADEMICS</p><h2>Track your academic progress.</h2></div></div>
+      <div class="two-col">
+        <article class="panel">
+          <h3>Add semester result</h3>
+          <form id="semesterForm" class="form-grid">
+            <input id="semester" required placeholder="Semester e.g. 5-1">
+            <input id="sgpa" required type="number" min="0" max="10" step="0.01" placeholder="SGPA">
+            <button class="primary-btn">Add semester</button>
+          </form>
+        </article>
+        <article class="panel">
+          <h3>Academic perspective</h3>
+          <p class="muted">Use CGPA as one indicator. Keep improving your skills, projects, communication and problem-solving alongside academics.</p>
+        </article>
+      </div>
+      <article class="panel">
+        <div id="semesterList"></div>
+      </article>
+    </section>
+
+    <section id="career" class="page-section">
+      <div class="section-title"><div><p class="eyebrow">CAREER PATH</p><h2>Choose a direction and see what matters.</h2></div></div>
+      <article class="panel">
+        <label class="label">Target career</label>
+        <select id="careerSelect" class="career-select">
+          <option>Software Developer</option>
+          <option>Full Stack Developer</option>
+          <option>Data Analyst</option>
+          <option>QA / Test Engineer</option>
+          <option>Undecided</option>
+        </select>
+        <div id="careerRoadmap" class="roadmap"></div>
+      </article>
+    </section>
+
+    <section id="placement" class="page-section">
+      <div class="section-title"><div><p class="eyebrow">PLACEMENT READINESS</p><h2>Prepare across multiple dimensions.</h2></div></div>
+      <div class="readiness-card">
+        <div><div class="readiness-number" id="placementBig">0%</div><p>Overall readiness</p></div>
+        <div class="progress-large"><span id="placementBar"></span></div>
+      </div>
+      <div id="placementList" class="cards-grid"></div>
+    </section>
+
+    <footer>GradeUp • HTML • CSS • Vanilla JavaScript • LocalStorage • Your data stays in your browser</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
