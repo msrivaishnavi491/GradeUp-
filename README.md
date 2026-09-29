@@ -1,4 +1,4 @@
-# GradeUp – Student Growth Platform (Violet Edition)
+# GradeUp – Student Growth Platform 
 
 GradeUp is a browser-based student development dashboard built with HTML, CSS and Vanilla JavaScript.
 
